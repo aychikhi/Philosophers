@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:40:55 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/16 17:41:32 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:38:34 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	get_current_time(void)
 
 size_t	read_last_meal_time(t_philo *philo)
 {
-	int	read;
+	size_t	read;
 
 	pthread_mutex_lock(&philo->last_meal_mutex);
 	read = philo->last_meal_time;

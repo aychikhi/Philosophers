@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:46:31 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:22:38 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:23:50 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	pick_up_forks(t_philo *philo)
 void	eat(t_philo *philo)
 {
 	print_status(philo, "is eating");
-	last_meal_change(philo, get_current_time());
+	change_last_meal_time(philo, get_current_time());
 	philo->meal_count++;
 	ft_usleep(philo, philo->data->time_to_eat);
 }

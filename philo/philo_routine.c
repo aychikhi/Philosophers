@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:20:29 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/16 17:07:25 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:34:56 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	ft_usleep(t_philo *philo, size_t time_to_sleep)
 
 void	print_status(t_philo *philo, char *status)
 {
-	size_t	current_time;
+	size_t	timestamps;
 
 	pthread_mutex_lock(&philo->data->print_mutex);
 	if (!read_simulation(philo))
 	{
-		current_time = get_current_time() - philo->data->start_time;
-		printf("%zu %d %s\n", current_time, philo->philo_id, status);
+		timestamps = get_current_time() - philo->data->start_time;
+		printf("%zu %d %s\n", timestamps, philo->philo_id, status);
 	}
 	if (!ft_strcmp(status, "died"))
 		change_simulation(philo, 1);
@@ -50,7 +50,7 @@ void	check_death(t_philo *philo)
 	while (07)
 	{
 		i = -1;
-		while (++i < philo->data->philo_num)
+		while (philo->data->philo_num > ++i)
 		{
 			if (read_flag(philo))
 				return ;
@@ -70,7 +70,7 @@ void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *)arg;
+	philo = (t_philo*)arg;
 	if (philo->philo_id % 2 == 0)
 		sleep_philo(philo);
 	while (!read_simulation(philo))
