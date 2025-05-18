@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_routine_utils.c                              :+:      :+:    :+:   */
+/*   routine_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 15:46:31 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:23:50 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/05/02 10:44:34 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/05/04 12:54:04 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	think(t_philo *philo)
 {
@@ -19,28 +19,30 @@ void	think(t_philo *philo)
 
 void	pick_up_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->left_fork);
+	sem_wait(philo->data->fork);
 	print_status(philo, "has taken a fork");
-	pthread_mutex_lock(philo->right_fork);
+	sem_wait(philo->data->fork);
 	print_status(philo, "has taken a fork");
 }
 
 void	eat(t_philo *philo)
 {
+	sem_wait(philo->data->death);
+	philo->last_meal = get_current_time();
 	print_status(philo, "is eating");
-	change_last_meal_time(philo, get_current_time());
 	philo->meal_count++;
-	ft_usleep(philo, philo->data->time_to_eat);
+	sem_post(philo->data->death);
+	ft_usleep(philo->data->time_to_eat);
 }
 
 void	put_down_forks(t_philo *philo)
 {
-	pthread_mutex_unlock(philo->right_fork);
-	pthread_mutex_unlock(&philo->left_fork);
+	sem_post(philo->data->fork);
+	sem_post(philo->data->fork);
 }
 
 void	sleep_philo(t_philo *philo)
 {
 	print_status(philo, "is sleeping");
-	ft_usleep(philo, philo->data->time_to_sleep);
+	ft_usleep(philo->data->time_to_sleep);
 }

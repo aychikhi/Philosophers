@@ -6,16 +6,34 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:40:55 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:38:34 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:01 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	error_mess(void)
 {
 	ft_putendl_fd("invalid arguments ❌", 2);
 	exit(EXIT_FAILURE);
+}
+
+void	clear_fun(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo->data->philo_num)
+	{
+		pthread_mutex_destroy(&philo[i].left_fork);
+		pthread_mutex_destroy(&philo[i].last_meal_mutex);
+		i++;
+	}
+	pthread_mutex_destroy(&philo->data->print_mutex);
+	pthread_mutex_destroy(&philo->data->flag_mutex);
+	pthread_mutex_destroy(&philo->data->simulation_mutex);
+	free(philo->data);
+	free(philo);
 }
 
 size_t	get_current_time(void)

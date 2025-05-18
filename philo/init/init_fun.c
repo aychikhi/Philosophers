@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 14:56:13 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:36:40 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:43:10 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 t_data	*data_init(int ac, char **av)
 {

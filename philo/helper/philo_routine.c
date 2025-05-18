@@ -6,22 +6,22 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:20:29 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:34:56 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/17 19:03:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_usleep(t_philo *philo, size_t time_to_sleep)
 {
 	size_t	end;
-
+	(void)philo;
 	end = get_current_time() + time_to_sleep;
 	while (get_current_time() < end)
 	{
 		if (read_simulation(philo))
 			break ;
-		usleep(100);
+		usleep(200);
 	}
 }
 
@@ -63,14 +63,14 @@ void	check_death(t_philo *philo)
 			}
 		}
 	}
-	ft_usleep(philo, 10);
+	// ft_usleep(philo, 10);
 }
 
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
 
-	philo = (t_philo*)arg;
+	philo = (t_philo *)arg;
 	if (philo->philo_id % 2 == 0)
 		sleep_philo(philo);
 	while (!read_simulation(philo))

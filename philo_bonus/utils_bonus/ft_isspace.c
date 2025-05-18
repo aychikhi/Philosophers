@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 13:03:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 13:24:55 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/05/01 17:18:26 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/05/01 17:19:13 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo_bonus.h"
 
-int	main(int ac, char **av)
+int	ft_isspace(int c)
 {
-	t_philo	*philo;
-	t_data	*data;
-
-	if (ac < 5 || ac > 6)
-		error_mess();
-	check_args(av, ac);
-	data = data_init(ac, av);
-	if (!data)
+	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
-	philo = malloc(data->philo_num * sizeof(t_philo));
-	if (!philo)
-		return (free(data), 1);
-	philo_init(philo, data);
-	if (data->philo_num == 1)
-		one_philo(philo);
-	else
-		thread_create(philo);
-	clear_fun(philo);
 	return (0);
 }
