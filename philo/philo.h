@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:05:24 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:05:31 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/18 11:18:20 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,23 @@ typedef struct s_philo
 	t_data			*data;
 }			t_philo;
 
-void	check(char *ptr);
 void	error_mess(void);
+int		check(char *ptr);
 int		ft_isdigit(int c);
 int		ft_isspace(int c);
 int		ft_atoi(char *str);
-void	is_empty(char *str);
 void	eat(t_philo *philo);
+int		is_empty(char *str);
 void	think(t_philo *philo);
 size_t	get_current_time(void);
-void	check_max_int(char *str);
+int		check_max_int(char *str);
 void	*philo_routine(void *arg);
 void	clear_fun(t_philo *philo);
 void	one_philo(t_philo *philo);
 int		read_flag(t_philo *philo);
 void	check_death(t_philo *philo);
 void	sleep_philo(t_philo *philo);
-void	check_args(char **av, int l);
+int		check_args(char **av, int l);
 t_data	*data_init(int ac, char **av);
 void	pick_up_forks(t_philo *philo);
 void	thread_create(t_philo *philo);

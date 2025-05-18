@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:40:55 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:46:01 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/18 11:16:06 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	error_mess(void)
 {
 	ft_putendl_fd("invalid arguments ❌", 2);
-	exit(EXIT_FAILURE);
 }
 
 void	clear_fun(t_philo *philo)

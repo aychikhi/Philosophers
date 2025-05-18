@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:03:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 13:24:55 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/18 11:10:28 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	if (ac < 5 || ac > 6)
+	{
 		error_mess();
+		return (1);
+	}
 	check_args(av, ac);
 	data = data_init(ac, av);
 	if (!data)
