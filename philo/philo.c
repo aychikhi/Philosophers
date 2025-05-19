@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:03:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/18 11:10:28 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/18 16:03:36 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@ int	main(int ac, char **av)
 	t_philo	*philo;
 	t_data	*data;
 
-	if (ac < 5 || ac > 6)
-	{
-		error_mess();
-		return (1);
-	}
-	check_args(av, ac);
+	if (ac < 5 || ac > 6 || check_args(av, ac))
+		return (error_mess(), 1);
 	data = data_init(ac, av);
 	if (!data)
 		return (1);
