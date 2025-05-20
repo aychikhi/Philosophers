@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:05:24 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/18 11:18:20 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:13:55 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ size_t	get_current_time(void);
 int		check_max_int(char *str);
 void	*philo_routine(void *arg);
 void	clear_fun(t_philo *philo);
-void	one_philo(t_philo *philo);
+// void	one_philo(t_philo *philo);
 int		read_flag(t_philo *philo);
 void	check_death(t_philo *philo);
 void	sleep_philo(t_philo *philo);

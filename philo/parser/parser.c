@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:20:08 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/18 11:19:04 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:11:25 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ int	check_args(char **av, int l)
 	int	i;
 
 	i = 0;
-	if (ft_atoi(av[1]) > 200)
-		return (1);
 	while (i++ < l - 1)
 	{
 		if (!av[i][0] || ft_atoi(av[i]) == 0)

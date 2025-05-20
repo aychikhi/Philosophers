@@ -6,19 +6,22 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:21:14 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:46:17 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:14:04 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	one_philo(t_philo *philo)
-{
-	printf("0 1 is thinking\n");
-	printf("0 1 has taken a fork\n");
-	ft_usleep(philo, philo->data->time_to_die);
-	printf("%d 1 died\n", philo->data->time_to_die);
-}
+// void	one_philo(t_philo *philo)
+// {
+// 	// printf("0 1 is thinking\n");
+// 	// printf("0 1 has taken a fork\n");
+// 	think(philo);
+// 	pick_up_forks(philo);
+// 	ft_usleep(philo, philo->data->time_to_die);
+// 	check_death(philo);
+// 	// printf("%d 1 died\n", philo->data->time_to_die);
+// }
 
 int	read_simulation(t_philo *philo)
 {

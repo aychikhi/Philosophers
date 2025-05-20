@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:03:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/18 16:03:36 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:06:41 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int ac, char **av)
 	if (!philo)
 		return (free(data), 1);
 	philo_init(philo, data);
-	if (data->philo_num == 1)
-		one_philo(philo);
-	else
+	// if (data->philo_num == 1)
+	// 	one_philo(philo);
+	// else
 		thread_create(philo);
 	clear_fun(philo);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 14:56:13 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/05/17 10:43:10 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:10:22 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ void	thread_create(t_philo *philo)
 	while (++i < philo->data->philo_num)
 		pthread_create(&philo[i].thread, NULL, philo_routine, &philo[i]);
 	check_death(philo);
-	i = -1;
-	while (++i < philo->data->philo_num)
-		if (pthread_join(philo[i].thread, NULL))
-			break ;
+	if (philo->data->philo_num > 1)
+	{		
+		i = -1;
+		while (++i < philo->data->philo_num)
+			if (pthread_join(philo[i].thread, NULL))
+				break ;
+	}
 	i = -1;
 	while (++i < philo->data->philo_num)
 		pthread_detach(philo[i].thread);
